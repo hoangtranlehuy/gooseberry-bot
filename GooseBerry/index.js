@@ -85,11 +85,11 @@ async function main() {
       const NewsList = await fetchRssAsJson(rssUrl);
       if (NewsList?.status === "ok") {
         const lk = [];
-        const randomIndex = randomIndex(NewsList?.items?.length)
-        const title = NewsList?.items?.[randomIndex].title.toUpperCase();
-        const link = NewsList?.items?.[randomIndex].link
+        const randomIndexx = randomIndex(10);
+        const title = NewsList?.items?.[randomIndexx].title.toUpperCase();
+        const link = NewsList?.items?.[randomIndexx].link
         lk.push({"s":title.length,"e":title.length + link.length + 1});
-        const url = getImageLink(NewsList?.items?.[randomIndex].description);
+        const url = getImageLink(NewsList?.items?.[randomIndexx].description);
         client.sendMessage(
           event?.clan_id,
           event?.channel_id,

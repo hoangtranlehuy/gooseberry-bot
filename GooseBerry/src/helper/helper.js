@@ -21,12 +21,12 @@ function getLinkFromNewsString(newsString, linksMap) {
     if(stringPart === ''){
         var keys = Object.keys(NewsCategory);
         respondingCategory = NewsCategory?.[keys[randomIndex(keys.length)]];
-        console.log(Object.keys(NewsCategory)[randomIndex(NewsCategory.length)], NewsCategory.length);
+        console.log(respondingCategory, keys);
     } else {
         respondingCategory = linksMap[stringPart];
     } 
     if (stringPart === null) return null;
-    const respondingLink = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2F"+NewsSourceRSS?.[randomIndex(NewsSourceRSS.length)]+"%2Frss%2F"+respondingCategory+".rss";
+    const respondingLink = "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2F"+NewsSourceRSS?.[randomIndex(NewsSourceRSS.length)]+"%2Frss%2F"+respondingCategory+".rss" + "&api_key=p3ec3qjcvu3b9kiv2chcrvn8alt2xg857mhhvlf9&count=10";
     console.log(respondingLink, NewsSourceRSS);
     return respondingLink || null;
 }
